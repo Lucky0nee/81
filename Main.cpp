@@ -5,6 +5,7 @@
 int main() {
 	srand(time(NULL));
 	std::list <int> list1;
+  	std::list <int> templist1;
 	std::list <int> list2;
 
 	std::cout << "\nlist 1:";
@@ -12,9 +13,11 @@ int main() {
 		list1.push_back(rand() % 100);
 		std::cout << list1.back() << " ";
 	}
-
+  
+  templist1 = list1;
+  
 	std::cout << "\nlist 2:";
-	for (int i = 0; i < list1.size(); i++) {
+	for (int i = 0; i < 100; i++) {
 		if (list1.back() % 7 == 0) {
 			list2.push_back(list1.back());
 			std::cout << list2.back() << " ";
@@ -22,7 +25,11 @@ int main() {
 
 		list1.pop_back();
 	}
-
+  
+    list1 = templist1;
+  
+	std::cout << "\nlist 1 size:"<< list1.size();
+  	std::cout << "\nlist 2 size:" << list2.size();
 	return 0;
 }
 
